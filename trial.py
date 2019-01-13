@@ -58,8 +58,10 @@ answer_merchant_btn.click()
 check_answers = browser.find_element_by_xpath("//button[@id='checkButn']")
 check_answers.click()
 
+# Get trial complete element
+message = browser.find_element_by_css_selector("div#trialCompleteBanner > h4")
 # check if Trial Complete text is found
-assert browser.page_source.find("Trial Complete")
+assert message.text == "Trial Complete"
 
 print("This is the password", password)
 print("test complete")

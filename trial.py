@@ -19,9 +19,11 @@ answer_secrets_riddle = browser.find_element_by_xpath(secrets_riddle_btn)
 # Manipulate elements for Riddle of Stone
 riddle_stone_input.send_keys("rock")
 answer_stone_riddle.click()
+#Assign password
+password = browser.find_elements_by_xpath("//div[@id='passwordBanner']")[0].text
 
 # Manipulate elements for Riddle of Secrets
-riddle_secrets_input.send_keys("bamboo")
+riddle_secrets_input.send_keys(password)
 answer_secrets_riddle.click()
 
 # Find elements for the Two Merchants' names
@@ -58,18 +60,7 @@ check_answers.click()
 # check if Trial Complete text is found
 assert browser.page_source.find("Trial Complete")
 
+print("This is the password", password)
 print("test complete")
-
-
-
-
-
-
-
-
-
-
-
-
 
 # browser.quit()

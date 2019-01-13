@@ -3,14 +3,14 @@ browser = webdriver.Chrome()
 browser.get("https://techstepacademy.com/trial-of-the-stones")
 
 # Find elements for Riddle of Stone
-stone_locator = "input[id='r1Input']"
+stone_locator = "r1Input"
 stone_riddle_btn = "//button[@id='r1Btn']"
 # Find elements for Riddle of Secrets
 secrets_locator = "input[id='r2Input']"
 secrets_riddle_btn = "//button[@id='r2Butn']"
 
 # Assign elements for Riddle of Stone
-riddle_stone_input = browser.find_element_by_css_selector(stone_locator)
+riddle_stone_input = browser.find_element_by_id(stone_locator) # another way to find an element
 answer_stone_riddle = browser.find_element_by_xpath(stone_riddle_btn)
 # Assign elements for Riddle of Secrets
 riddle_secrets_input = browser.find_element_by_css_selector(secrets_locator)
@@ -40,8 +40,9 @@ bernard = browser.find_elements_by_xpath(find_bernard)[0].text
 jessica_wealth = browser.find_elements_by_xpath(find_jessica_wealth)[0].text
 bernard_wealth = browser.find_elements_by_xpath(find_bernard_wealth)[0].text
 #Find and assign input field and answer for richest merchant
-merchant_input = browser.find_element_by_css_selector("input[id='r3Input']")
+merchant_input = browser.find_element_by_css_selector("input#r3Input") # another way to describe id
 answer_merchant_btn = browser.find_element_by_xpath("//button[@id='r3Butn']")
+#can also describe id using # so input#r3Input
 
 #Find who is richer and enter name
 if jessica_wealth > bernard_wealth:

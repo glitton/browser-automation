@@ -27,14 +27,32 @@ answer_secrets_riddle.click()
 # Find elements for the Two Merchants' names
 find_jessica = "//b[text()='Jessica']"
 find_bernard = "//b[text()='Bernard']"
+
 # Find elements for the Two Merchants' wealth
 find_jessica_wealth = "//b[text()='Jessica']/../../p"
 find_bernard_wealth = "//b[text()='Bernard']/../../p"
+
 # Assign elements for Two Merchants
 jessica = browser.find_elements_by_xpath(find_jessica)[0].text
 bernard = browser.find_elements_by_xpath(find_bernard)[0].text
 jessica_wealth = browser.find_elements_by_xpath(find_jessica_wealth)[0].text
 bernard_wealth = browser.find_elements_by_xpath(find_bernard_wealth)[0].text
+#Find and assign input field and answer for richest merchant
+merchant_input = browser.find_element_by_css_selector("input[id='r3Input']")
+answer_merchant_btn = browser.find_element_by_xpath("//button[@id='r3Butn']")
+
+#Find who is richer and enter name
+if jessica_wealth > bernard_wealth:
+    #enter name input field
+    merchant_input.send_keys(jessica)
+else:
+    merchant_input.send_keys(bernard)
+    
+# click answer
+answer_merchant_btn.click()
+
+
+
 
 
 

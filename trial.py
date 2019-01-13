@@ -47,9 +47,18 @@ if jessica_wealth > bernard_wealth:
     merchant_input.send_keys(jessica)
 else:
     merchant_input.send_keys(bernard)
-    
+
 # click answer
 answer_merchant_btn.click()
+
+# Find check answer element and click the button
+check_answers = browser.find_element_by_xpath("//button[@id='checkButn']")
+check_answers.click()
+
+# check if Trial Complete text is found
+assert browser.page_source.find("Trial Complete")
+
+print("test complete")
 
 
 
